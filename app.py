@@ -7,7 +7,10 @@ st.set_page_config(
     layout="wide",
 )
 
-API_KEY = "AQ.Ab8RN6L8itVMEbft3uUbpadXgkQWB4ERXH0pZnSF6fGmcg9qdA"
+import os
+
+# Streamlit Secrets se API key read karega
+API_KEY = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=API_KEY)
 
 st.sidebar.title("⚡ OmniSales AI")
